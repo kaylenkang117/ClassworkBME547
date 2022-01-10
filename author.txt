@@ -1,4 +1,9 @@
-# My Personal Health Information
+# Author Info
+
+Kaylen Kang
+
+## Background
+I am from Fairfax, VA
 
 ## My Specifications
 * Patient Name: Kaylen Kang
