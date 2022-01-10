@@ -1,0 +1,11 @@
+# My Personal Health Information
+
+## My Specifications
+* Patient Name: Kaylen Kang
+* Patient ID: kk431
+* Patient Age: 23
+* Address:
+	- Street: 710 S Lasalle St
+	- City: Durham
+	- State: North Carolina
+	- Zipcode: 22705
