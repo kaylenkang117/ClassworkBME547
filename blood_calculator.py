@@ -23,7 +23,9 @@ def check_HDL(HDL_value):
         answer = "Low"
     return answer
     
-    
+def HDL_driver():
+    HDL_value = accept_input("HDL")
+    classification = check_HDL(HDL_value)
     
 
 interface()
