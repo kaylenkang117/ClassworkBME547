@@ -29,7 +29,8 @@ def accept_input(test_name):
 
 
 def print_result(test_name, test_value, test_class):
-    out_string = "The test value of {} for {} is {}".format(test_value, test_name, test_class)
+    out_string = "The test value of {} for {} is"
+    " {}".format(test_value, test_name, test_class)
     print(out_string)
     return
 
