@@ -16,12 +16,12 @@ class Patient:
         outstring += "Age: {}\n".format(self.age)
         outstring += "Tests: {}\n".format(self.tests)
         return outstring
-    
+
     def is_adult_or_minor(self):
         if self.age >= 18:
             return "Adult"
         else:
-            return "Minor" 
+            return "Minor"
 
     def id_tag_string(self):
         return "{}: {}".format(self.name, self.id)
