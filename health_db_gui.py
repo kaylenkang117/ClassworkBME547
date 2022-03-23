@@ -29,7 +29,8 @@ def main_window():
     ttk.Label(root, text="Name:").grid(column=0, row=1, sticky="e")
     name_entry = tk.StringVar()
     name_entry.set("Enter a name here")
-    ttk.Entry(root, width=40, textvariable=name_entry).grid(column=1, row=1, sticky="w")
+    ttk.Entry(root, width=40, textvariable=name_entry)\
+        .grid(column=1, row=1, sticky="w")
 
     ttk.Label(root, text="ID:").grid(column=0, row=2, sticky="e")
     id_entry = tk.StringVar()
