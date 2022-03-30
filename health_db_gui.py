@@ -2,23 +2,40 @@ import tkinter as tk
 from tkinter import ttk
 
 
+def verify_GUI_inputs(input_id):
+    try:
+        id_integer = int(input_id)
+    except ValueError:
+        return False
+    return id_integer
+
+
 def main_window():
 
     def cancel_cmd():
         root.destroy()
 
     def ok_cmd():
-        print("Here is the data:")
+        from health_db_client import upload_patient_data_to_server
+        # Get data from interface
         entered_name = name_entry.get()
-        print("Name: {}".format(entered_name))
         entered_id = id_entry.get()
-        print("ID: {}".format(entered_id))
-        entered_blood_type = blood_letter.get()
+        entered_blood_letter = blood_letter.get()
         entered_rh_factor = rh_factor.get()
-        print("Blood Type: {}".format(entered_blood_type+entered_rh_factor))
+        entered_blood_type = entered_blood_letter + entered_rh_factor
         entered_donor_center = donor_center.get()
-        print("Nearest Donation Center: {}".format(entered_donor_center))
+        # Call other functions to do the work
+        patient_number = verify_GUI_inputs(entered_id)
+        if patient_number is False:
+            status_label.configure(text="Patient ID must be an integer.")
+            return
+        status_string = upload_patient_data_to_server(entered_name,
+                                                      patient_number,
+                                                      entered_blood_type)
+        # Update interface based on results
+        status_label.configure(text=status_string)
 
+    # Create root/base window
     root = tk.Tk()
     root.title("Health Database")
     root.geometry("700x400")
@@ -57,9 +74,15 @@ def main_window():
     center_dropdown.grid(column=2, row=1)
     center_dropdown["values"] = ("Durham", "Raleigh", "Cary", "Apex")
 
+    # Status Indicator
+    status_label = ttk.Label(root, text="Status")
+    status_label.grid(column=0, row=20)
+
+    # Buttons
     ttk.Button(root, text="OK", command=ok_cmd).grid(column=1, row=20)
     ttk.Button(root, text="Cancel", command=cancel_cmd).grid(column=2, row=20)
 
+    # Start GUI
     root.mainloop()
 
 
